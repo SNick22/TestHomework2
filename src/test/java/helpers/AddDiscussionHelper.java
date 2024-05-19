@@ -1,10 +1,8 @@
 package helpers;
 
-import data.AddDiscussionData;
-import org.openqa.selenium.WebDriver;
+import model.AddDiscussionData;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import tests.AppManager;
 
 public class AddDiscussionHelper extends HelperBase {
