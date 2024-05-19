@@ -1,10 +1,8 @@
 package helpers;
 
-import data.LoginData;
-import org.openqa.selenium.WebDriver;
+import model.LoginData;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import tests.AppManager;
 
 public class LoginHelper extends HelperBase {

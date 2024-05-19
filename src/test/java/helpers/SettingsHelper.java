@@ -2,6 +2,7 @@ package helpers;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Wait;
 import tests.AppManager;
 
 public class SettingsHelper extends HelperBase {
@@ -26,6 +27,7 @@ public class SettingsHelper extends HelperBase {
     }
 
     private void enterDescription(String description) {
+        descriptionInput.clear();
         descriptionInput.sendKeys(description);
     }
 
