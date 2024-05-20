@@ -1,7 +1,8 @@
-<LoginDatas>
-    <item>
+<SettingsModel>
+    <baseUrl>https://www.pepper.ru/</baseUrl>
+    <loginData>
         <email>noxem40711@abnovel.com</email>
         <password>Azat3310977!</password>
         <username>testuser112233</username>
-    </item>
-</LoginDatas>
+    </loginData>
+</SettingsModel>

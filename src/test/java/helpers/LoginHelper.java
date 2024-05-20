@@ -1,9 +1,12 @@
 package helpers;
 
 import model.LoginData;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import tests.AppManager;
+
+import java.util.Objects;
 
 public class LoginHelper extends HelperBase {
 
@@ -56,7 +59,30 @@ public class LoginHelper extends HelperBase {
         return username.getText();
     }
 
+    public boolean isLoggedIn() {
+        return !driver.findElements(By.xpath("//*[@id=\"main\"]/div[3]/header/div/div/div[3]/div[3]/button")).isEmpty();
+    }
+
+    public boolean isLoggedIn(String username) {
+        showProfile();
+        String actualUsername = getUsername();
+        showProfile();
+        return Objects.equals(actualUsername, username);
+    }
+
+    public boolean isErrorPassword() {
+        return passwordField.getDomAttribute("class").contains("input--mode-error");
+    }
+
     public void login(LoginData loginData) {
+        if (isLoggedIn()) {
+            if (isLoggedIn(loginData.username)) {
+                return;
+            } else {
+                logout();
+            }
+        }
+
         showLoginBlock();
         inputEmail(loginData.email);
         inputPassword(loginData.password);
