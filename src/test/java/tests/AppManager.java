@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import util.Destructor;
+import util.Settings;
 
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
@@ -22,15 +23,15 @@ public class AppManager {
     private final WebDriver driver;
 
     private AppManager() {
+        new Settings();
         ChromeOptions options = new ChromeOptions();
         options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.of(20, ChronoUnit.SECONDS));
-        String baseUrl = "https://www.pepper.ru/";
+        driver.manage().timeouts().implicitlyWait(Duration.of(5, ChronoUnit.SECONDS));
         addDiscussionHelper = new AddDiscussionHelper(this);
         loginHelper = new LoginHelper(this);
-        navigationHelper = new NavigationHelper(this, baseUrl);
+        navigationHelper = new NavigationHelper(this, Settings.baseUrl);
         settingsHelper = new SettingsHelper(this);
         Destructor.addManagerDestructor(this);
     }

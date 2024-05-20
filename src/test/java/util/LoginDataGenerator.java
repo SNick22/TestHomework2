@@ -19,9 +19,12 @@ public class LoginDataGenerator {
             String email = in.nextLine();
             System.out.println("Enter password");
             String password = in.nextLine();
+            System.out.println("Enter username");
+            String username = in.nextLine();
             LoginData data = new LoginData();
             data.email = email;
             data.password = password;
+            data.username = username;
             array[i] = data;
         }
         XmlMapper mapper = new XmlMapper();

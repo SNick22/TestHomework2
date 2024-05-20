@@ -11,4 +11,5 @@ public class LoginData {
 
     public String email;
     public String password;
+    public String username;
 }
